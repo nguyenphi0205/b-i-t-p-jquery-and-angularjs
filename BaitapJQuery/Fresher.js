@@ -16,21 +16,7 @@ var fresher = {
             dataType: 'json',
             type: 'GET',
             success: (data) => {
-                // console.log(data);
-                var get = "";
-                $.each(data, function () {
-                    // get +=this['Id']+"</br>";
-                    // get +=this['name']+"</br>";
-               
-                    get += "<tr>";
-                    get += "<td>" + this['Id'] + "</td>"
-                    get += "<td>" + this['name'] + "</td>"
-                    get += "<td>" + this['DOB'] + "</td>"
-                    get += "<td>" + this['Gender'] + "</td>"
-                    get += "</tr>"
-                });
-                $('tbody').html(get);
-               // fresherControl.loadTblMain(data);
+                fresherControl.loadTblMain(data);
             },
             error: () => {
                 console.log('error');
@@ -42,16 +28,15 @@ var fresher = {
 }
 var fresherControl = {
     loadTblMain: (data) => {
-        var tblMain = $('#tblMain');
-        tblMain.empty();
-        tblMain.append("");
-        if (typeof tblMain !== 'undefined' && data.length > 0) {
-            for (var i = 0; i < data.length; i++) {
-                tblMain.append("<tbody><tr><td>" + data[i].Id + "</td><td>" + data[i].name + "</td><td>" + data[i].DOB + "</td><td>" + data[i].Gender + "</td></tr></tbody>");
-            }
-        }
-        else {
-            console.log('error');
-        }
+        var get = "";
+        $.each(data, function () {
+            get += "<tr>";
+            get += "<td>" + this['Id'] + "</td>"
+            get += "<td>" + this['name'] + "</td>"
+            get += "<td>" + this['DOB'] + "</td>"
+            get += "<td>" + this['Gender'] + "</td>"
+            get += "</tr>"
+        });
+        $('tbody').html(get);
     }
 }
