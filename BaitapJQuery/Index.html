@@ -5,52 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bài tập JQuery</title>
-    <link rel="stylesheet" type="text/css" href="../BaitapJQuery/style.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./Fresher.js"></script>
 
-<body>
-    <div>
-        <div class="Content">
-            <h2>Danh sách fresher DXC</h2>
+    <body>
+        <div>
+            <div class="Content">
+                <h2>Danh sách fresher DXC</h2>
+            </div>
+            <div class="search">
+                <span>
+                    <b>Search :</b>
+                </span>
+                <input type="text" placeholder="Search" />
+            </div>
+            <div class="Table">
+                <table id="tblMain">
+                    <thead>
+                        <tr>
+                            <th> STT</th>
+                            <th>Name</th>
+                            <th>Date Of Birth</th>
+                            <th>Gender</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
-        <div class="search">
-            <span><b>Search :</b></span>
-            <input type="text" placeholder="Search"/>
-        </div>
-        <div class="Table">
-            
-            <table>
-                <tr>
-                    <th>STT</th>
-                    <th>Name</th>
-                    <th>Date Of Birth</th>
-                    <th>Gender</th>
-                    <th>Age</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Nguyen Phi</td>
-                    <td>02/05/1997</td>
-                    <td>nam</td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>ABC</td>
-                    <td>02/05/1997</td>
-                    <td>nam</td>
-                    <td>21</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>ABC</td>
-                    <td>02/05/1997</td>
-                    <td>nam</td>
-                    <td>21</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-</body>
+    </body>
 
 </html>
