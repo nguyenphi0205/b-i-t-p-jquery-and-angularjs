@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bài tập JQuery</title>
     <link rel="stylesheet" type="text/css" href="./style.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="./Fresher.js"></script>
 
     <body>
@@ -14,12 +14,14 @@
             <div class="Content">
                 <h2>Danh sách fresher DXC</h2>
             </div>
+            	<form role="form">
             <div class="search">
                 <span>
                     <b>Search :</b>
                 </span>
-                <input type="text" placeholder="Search" />
+                <input type="text" placeholder="Search" id="txt-search" />
             </div>
+            </form>
             <div class="Table">
                 <table id="tblMain">
                     <thead>
@@ -28,6 +30,7 @@
                             <th>Name</th>
                             <th>Date Of Birth</th>
                             <th>Gender</th>
+                            <th>Age</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -37,3 +40,37 @@
     </body>
 
 </html>
+    <script>
+     $('#txt-search').keyup(function(data){
+            var searchField = $(this).val();
+			if(searchField === '')  {
+				fresherControl.loadTblMain(data);
+				return;
+			}
+//            var regex = new RegExp(searchField, "i");
+            var output = '';
+            var count = 1;
+         var date=new Date();
+        var getYear=date.getFullYear();
+			  $.each(data, function(){
+                  console.log(this["name"]);
+				if ((this["name"] != '')) {
+//			   slipString=getYear-this['DOB'].substring(6, 10);
+            output += "<tr>";
+            output += "<td>" + this['Id'] + "</td>"
+            output += "<td>" + this['name'] + "</td>"
+            output += "<td>" + this['DOB'] + "</td>"
+            output += "<td>" + this['Gender'] + "</td>"
+//            output +="<td>" +slipString+"</td>"
+            output += "</tr>"
+				  if(count%2 == 0){
+					output += '</div><div class="row">'
+				  }
+				  count++;
+				}
+			  });
+			  output += '</div>';
+			  $('tbody').html(output);
+        });
+        
+    </script>

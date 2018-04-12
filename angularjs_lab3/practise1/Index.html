@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>practise 1</title>
+    <!-- <link href="C:\Users\training\Desktop\practise\b-i-t-p-jquery-and-angularjs\angularjs_lab3\practise1\style.css"> -->
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body ng-app="practise.app">
+    <div class="grid-container">
+        <div class="grid-item">
+            <div ng-controller="HelloController as hello">
+                {{hello.name}}
+            </div>
+        </div>
+        <div class="grid-item">
+            <div ng-controller="getWordHello as gethello">
+                <input type="text" ng-model="gethello.name" required/>
+                <div>{{gethello.name}}</div>
+            </div>
+        </div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+    </div>
+
+
+</body>
+
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="C:\Users\training\Desktop\practise\b-i-t-p-jquery-and-angularjs\angularjs_lab3\practise1\hello.module.js"></script>
+<script src="C:\Users\training\Desktop\practise\b-i-t-p-jquery-and-angularjs\angularjs_lab3\practise1\hello.controller.js"></script>
+<script src="C:\Users\training\Desktop\practise\b-i-t-p-jquery-and-angularjs\angularjs_lab3\practise1\GetWordHello.controller.js"></script>
