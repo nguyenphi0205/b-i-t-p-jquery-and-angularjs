@@ -1,42 +1,52 @@
 $(document).ready(function () {
     fresher.init();
+
 });
 
 var fresher = {
 
     name: "fresher",
     init: () => {
-        fresher.getAll();
+        fresher.getAllFresher();
+
 
     },
-    getAll: () => {
+    getAllFresher: () => {
         var api = "data.json";
         $.ajax({
             url: api,
             dataType: 'json',
             type: 'GET',
             success: (data) => {
-                fresherControl.loadTblMain(data);
+                fresherView.loadFresherList(data);
             },
             error: () => {
                 console.log('error');
             }
         });
-
     }
 
+
 }
-var fresherControl = {
-    loadTblMain: (data) => {
-        var get = "";
+var fresherView = {
+    loadFresherList: (data) => {
+        var output = "";
+        var slitString;
+        var date = new Date();
+        var getYear = date.getFullYear();
+        var age;
         $.each(data, function () {
-            get += "<tr>";
-            get += "<td>" + this['Id'] + "</td>"
-            get += "<td>" + this['name'] + "</td>"
-            get += "<td>" + this['DOB'] + "</td>"
-            get += "<td>" + this['Gender'] + "</td>"
-            get += "</tr>"
+            slitString = new Date(this['DOB']).getFullYear();
+            age = getYear - slitString;
+            output += "<tr id=" + this['Gender'] + ">"
+            output += "<td>" + this['Id'] + "</td>"
+            output += "<td>" + this['name'] + "</td>"
+            output += "<td>" + this['DOB'] + "</td>"
+            output += "<td>" + this['Gender'] + "</td>"
+            output += "<td>" + age + "</td>"
+            output += "</tr>"
         });
-        $('tbody').html(get);
+        $('tbody').html(output);
+
     }
 }
